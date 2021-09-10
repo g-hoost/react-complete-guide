@@ -1,8 +1,8 @@
 import React from 'react';
-import ExpenseItem from './ExpenseItem';
-import './ExpenseItem.css';
-import Card from './Card';
-import './Expenses.css';
+import ExpenseItem from '../Expenses/ExpenseItem';
+import '../Expenses/ExpenseItem.css';
+import Card from '../UI/Card';
+import '../Expenses/Expenses.css';
 
 
 function Expenses(props)
