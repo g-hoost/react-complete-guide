@@ -21,15 +21,27 @@ function Expenses(props)
         return expense.date.getFullYear().toString() === filteredYear;
     });
 
+    let expensesContent = <p className='no-expenses'>No Expenses found.</p>;
+    if (filteredExpenses.length > 0) {
+        expensesContent = filteredExpenses.map((expense) => (
+            <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date}
+            />
+        ))
+    }
+
     return (
         <div>
             <Card className="expenses">
                 <ExpensesFilter
                     selected={filteredYear}
                     onChangeFilter={filterChangeHandler} />
-                {filteredExpenses.length === 0 ? (
-                    <p>No Expenses found.</p>
-                ) : (
+                {expensesContent
+                /* {filteredExpenses.length === 0 && expensesContent}
+                {filteredExpenses.length > 0 &&
                     filteredExpenses.map((expense) => (
                         <ExpenseItem
                             key={expense.id}
@@ -37,8 +49,8 @@ function Expenses(props)
                             amount={expense.amount}
                             date={expense.date}
                         />
-                    ))
-                )}
+                        hier wäre dann "no expenses found" der Default-Wert!
+                    ))} */}
             </Card>
         </div>
     )
