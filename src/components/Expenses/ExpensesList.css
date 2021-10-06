@@ -4,3 +4,7 @@
     padding-left: 1rem;
     font-size: 2rem;
   }
+
+  .expenses-list {
+    list-style-type: none;
+  }
